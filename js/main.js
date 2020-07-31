@@ -27,8 +27,8 @@
                 videoImages: []
             },
             values: {
-                videoImageCount: 300,
-                imageSequence: [0, 299],
+                videoImageCount: 197,
+                imageSequence: [0, 196],
                 canvasOpacity: [1, 0, {start: 0.9, end: 1.0}],
 
                 messageAOpacityIn: [0, 1, {start: 0.1, end: 0.2}],
@@ -78,8 +78,8 @@
                 videoImages: []
             },
             values: {
-                videoImageCount: 960,
-				imageSequence: [0, 959],
+                videoImageCount: 789,
+				imageSequence: [0, 788],
                 canvasOpacityIn: [0, 1, {start: 0, end: 0.1}],
                 canvasOpacityOut: [1, 0, {start: 0.9, end: 1}],
 
@@ -146,17 +146,18 @@
 
     function setCanvasImages() {
         let imgElem;
-        for(let i=0; i<sceneInfo[0].values.videoImageCount; i++) {
+        for(let i=1; i<=sceneInfo[0].values.videoImageCount; i++) {
             imgElem = document.createElement('img');
-            imgElem.src = `./video/001/IMG_${i+6726}.jpg`;
+            imgElem.src = `./video/resize_1/img_${i}.png`;
+            
             sceneInfo[0].objs.videoImages.push(imgElem);
 
         }
 
         let imgElem2;
-        for(let i=0; i<sceneInfo[2].values.videoImageCount; i++) {
+        for(let i=1; i<=sceneInfo[2].values.videoImageCount; i++) {
             imgElem2 = document.createElement('img');
-            imgElem2.src = `./video/002/IMG_${i+7027}.jpg`;
+            imgElem2.src = `./video/resize_2/img_${i}.png`;
             sceneInfo[2].objs.videoImages.push(imgElem2);
 
         }
@@ -357,7 +358,7 @@
                     }
 
                     objs.canvas.style.transform = `scale(${canvasScaleRatio})`;
-                    objs.context.fillStyle = 'gray';
+                    objs.context.fillStyle = 'black';
                     objs.context.drawImage(objs.images[0], 0, 0);
 
                     const recalculatedInnerWidth = document.body.offsetWidth / canvasScaleRatio;
@@ -395,7 +396,7 @@
                 }
 
                 objs.canvas.style.transform = `scale(${canvasScaleRatio})`;
-                objs.context.fillStyle = 'gray';
+                objs.context.fillStyle = 'black';
                 objs.context.drawImage(objs.images[0], 0, 0);
 
                 const recalculatedInnerWidth = document.body.offsetWidth / canvasScaleRatio;
@@ -510,7 +511,7 @@
                 const objs = sceneInfo[currentScene].objs;
                 let sequence = Math.round(calcValues(values.imageSequence, currentYOffset));
                 if(objs.videoImages[sequence]) {
-                    objs.context.drawImage(objs.videoImages[sequence], 0, 0);
+                    objs.context.drawImage(objs.videoImages[sequence], 0, 0, 1920, 1080);
                 }
             }  
         }
@@ -533,7 +534,10 @@
 
         let tempYOffset = yOffset;
         let tempScrollCount = 0;
-        if(tempYOffset > 0) {
+        if(tempYOffset === 0) {
+            window.scrollTo(0, 1);
+        }
+        else if(tempYOffset > 0) {
             let setIntervalId = setInterval(() => {
                 window.scrollTo(0, tempYOffset);
                 tempYOffset += 5;

@@ -9,14 +9,14 @@ body {
     overflow-x: hidden;
     color: rgb(29, 29, 31);
     letter-spacing: -0.05em;
-    background-color: white;
+    background-color: black;
 }
 
 p {
     line-height: 1.6;
 }
 a {
-    color: rgb(29, 29, 31);
+    color: white;
     text-decoration: none;
 }
 .container {
@@ -48,6 +48,7 @@ body.before-load {
     border-bottom:  1px solid #ddd;
     padding: 0 1rem;
 }
+
 .first-nav-sticky .first-nav {
     position: fixed;
     top: 0;
@@ -58,6 +59,8 @@ body.before-load {
 }
 .first-nav-links,
 .second-nav-links {
+    font-weight: bold;
+    font-size: 18px;
     display: flex;
     align-items: center;
     max-width: 1000px;
@@ -67,7 +70,10 @@ body.before-load {
 .first-nav-links {
     justify-content: space-between;
 }
-
+#scroll-section-0,
+.music {
+    color: white;
+}
 .second-nav-links .product-name {
     margin-right: auto;
     font-size: 1.4rem;
@@ -130,7 +136,7 @@ body.before-load {
     float: left;
     margin-right: 0.2em;
     font-size: 3rem;
-    color: rgb(29, 29, 31);
+    color: rgb(255, 255, 255);
 }
 .desc-message {
     width: 50%;
