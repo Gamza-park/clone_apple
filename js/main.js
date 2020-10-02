@@ -228,7 +228,7 @@
         return rv;
     }
 
-    function anymation() {
+    function animation() {
         const objs = sceneInfo[currentScene].objs;
         const values = sceneInfo[currentScene].values;
         const currentYOffset = yOffset - prevScrollHeight;
@@ -497,7 +497,7 @@
         if (newScene){
             return;
         }
-        anymation();
+        animation();
 
     }
 
